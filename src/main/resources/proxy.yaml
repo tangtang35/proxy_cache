@@ -1,0 +1,33 @@
+port: 6666
+server: 127.0.0.1
+httpPort: 9090
+client:
+        # clientKey
+        ankki:
+                # domain 代表的是域名转发,代理类型 是http,会解析包
+                #- domain: http.proxy.test.com
+                #  proxyType: http
+                #  realhost: 172.19.1.213
+                #  realhostport: 57772
+                #  description: http代理
+                # serverport 代表的是端口转发,代理类型为TCP,直接转发，不解析包
+                - serverport: 3307
+                  proxyType: tcp
+                  realhost: 172.19.1.213
+                  realhostport: 1972
+                  description: mysql 代理
+                # 也可以 端口转发http 流量，用tcp 代理模式，这样不会解析包，更快
+                - serverport: 9999
+                  proxyType: tcp
+                  realhost: 172.19.1.213
+                  realhostport: 57772
+                  description: http代理
+                # ssh 代理
+                - serverport: 2222
+                  proxyType: tcp
+                  realhost: 127.0.0.1
+                  realhostport: 22
+                  description: ssh 代理
+
+
+
